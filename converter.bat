@@ -1,0 +1,1 @@
+pyuic5 Game_interface.ui -o Game_interface.py
