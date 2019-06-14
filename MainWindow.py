@@ -31,7 +31,10 @@ class MyWin(QtWidgets.QMainWindow, Ui_MainWindow):
             QtCore.Qt.Key_A: self.left,
             QtCore.Qt.Key_D: self.right
         }
-        dict[event.key()]()
+        try:
+            dict[event.key()]()
+        except:
+            pass
 
     def show_matrix_in_table(self):
         self.select_col = self.g.get_select_col()
