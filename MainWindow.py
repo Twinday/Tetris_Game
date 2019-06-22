@@ -22,6 +22,7 @@ class MyWin(QtWidgets.QMainWindow, Ui_MainWindow):
         self.timer.timeout.connect(self.timer_tick)
 
         self.buttonStart.clicked.connect(self.start)
+        self.btn_Info.clicked.connect(self.info)
 
 
     def keyPressEvent(self, event):
@@ -63,9 +64,9 @@ class MyWin(QtWidgets.QMainWindow, Ui_MainWindow):
         self.label.setText("x" + str(sel_block['count']))
         self.label_score.setText("Score: " + str(self.score))
         self.label_level.setText("Level " + str(self.level))
-        self.label.setFont(QtGui.QFont('SansSerif', 20))
-        self.label_score.setFont(QtGui.QFont('SansSerif', 20))
-        self.label_level.setFont(QtGui.QFont('SansSerif', 20))
+        self.label.setFont(QtGui.QFont('SansSerif', 16))
+        self.label_score.setFont(QtGui.QFont('SansSerif', 14))
+        self.label_level.setFont(QtGui.QFont('SansSerif', 14))
 
 
     def decor_update_view(func):
@@ -134,3 +135,16 @@ class MyWin(QtWidgets.QMainWindow, Ui_MainWindow):
         self.g.create_level()
         self.score = self.g.get_score()
         self.select_col = self.g.get_select_col()
+
+    def info(self):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setText("Цель игры: соединить 4 и больше одинаковых блоков, чтобы они удалились.\n"
+                    "P.S. черный блок забрать нельзя, динамит уничтожает весь стольбец, в который его возвратим.")
+        msg.setInformativeText("Управление: (WASD)\n"
+                               "A, D - передвигаем выбранный столбец,\n"
+                               "S - забираем блок,\n"
+                               "W - возвращаем блок.")
+        msg.setWindowTitle("Tetris")
+        msg.addButton('Окей', QMessageBox.AcceptRole)
+        msg.exec()

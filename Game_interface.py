@@ -37,6 +37,9 @@ class Ui_MainWindow(object):
         self.label_level = QtWidgets.QLabel(self.centralwidget)
         self.label_level.setGeometry(QtCore.QRect(200, 580, 131, 51))
         self.label_level.setObjectName("label_level")
+        self.btn_Info = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_Info.setGeometry(QtCore.QRect(30, 590, 75, 23))
+        self.btn_Info.setObjectName("btn_Info")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1053, 21))
@@ -56,4 +59,5 @@ class Ui_MainWindow(object):
         self.buttonStart.setText(_translate("MainWindow", "Start"))
         self.label_score.setText(_translate("MainWindow", "Score: 0"))
         self.label_level.setText(_translate("MainWindow", "Level 0"))
+        self.btn_Info.setText(_translate("MainWindow", "Info"))
 
